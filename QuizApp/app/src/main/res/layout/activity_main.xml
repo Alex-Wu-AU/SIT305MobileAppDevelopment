@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--    Create the progress bar-->
+    <!-- Text View for Progress -->
+
+    <RelativeLayout
+        android:id="@+id/idProgressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <!--    Creating the bar-->
+
+        <TextView
+            android:id="@+id/idProgressTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/idProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/idProgressTV"
+            android:layout_alignBaseline="@id/idProgressTV"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar_drawable"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Question"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_marginTop = "50dp"
+        android:textColor="@color/sand"
+        android:id="@+id/idTVQuestion"
+        android:layout_below="@id/idProgressLayout"
+        />
+
+<!--    Creating 4 buttons for the layout-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:layout_below="@id/idTVQuestion"
+        android:orientation="vertical"
+        android:id="@+id/idOptions"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="Option 1"
+            android:id="@+id/idBtnOption1"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="Option 2"
+            android:id="@+id/idBtnOption2"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="Option 3"
+            android:id="@+id/idBtnOption3"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="Option 4"
+            android:id="@+id/idBtnOption4"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/idBtnSubmit"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idOptions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/navy"
+        android:text="Submit" />
+
+</RelativeLayout>

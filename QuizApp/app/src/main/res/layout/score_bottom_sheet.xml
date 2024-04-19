@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/idLLScore">
+
+<!--    Result View-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:text="Your Score is"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:padding="3dp"
+        android:id="@+id/idTVScore"/>
+
+<!--    Restart Button-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/idBtnRestart"
+        android:layout_margin="20dp"
+        android:textAllCaps="false"
+        android:text="Restart"/>
+
+
+
+</LinearLayout>
