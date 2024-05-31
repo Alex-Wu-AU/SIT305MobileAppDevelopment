@@ -1,5 +1,8 @@
 package com.example.learningexperience;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<QuizModal> quizModalArrayList;
     private Random random;
     private int currentScore = 0, questionAttempted = 1, currentPos;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         quizModalArrayList = new ArrayList<>();
         random = new Random();
 
+        sharedPreferences = getSharedPreferences("QuizData", Context.MODE_PRIVATE);
         // Fetch quiz questions from API
         fetchQuizQuestions();
 
@@ -53,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Update quiz data in SharedPreferences
+                updateQuizData();
                 questionAttempted++;
                 if (questionAttempted <= 5) {
                     currentPos = random.nextInt(quizModalArrayList.size());
@@ -60,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     showBottomSheet();
                 }
+
             }
+
         });
 
         // Button click behavior for options
@@ -93,6 +102,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 resetButtonColors();
                 option4Btn.setBackgroundColor(Color.parseColor("#7DD2F4")); // Blue
+            }
+        });
+
+        Button btnGoToProfileActivity = findViewById(R.id.btnGoToProfileActivity);
+        btnGoToProfileActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                intent.putExtra("currentScore", currentScore);
+                intent.putExtra("questionAttempted", questionAttempted);
+                startActivity(intent);
             }
         });
     }
@@ -167,5 +187,13 @@ public class MainActivity extends AppCompatActivity {
             option3Btn.setText(quizModal.getOption3());
             option4Btn.setText(quizModal.getOption4());
         }
+    }
+
+    private void updateQuizData() {
+        // Update quiz data in SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("currentScore", currentScore);
+        editor.putInt("questionAttempted", questionAttempted);
+        editor.apply();
     }
 }

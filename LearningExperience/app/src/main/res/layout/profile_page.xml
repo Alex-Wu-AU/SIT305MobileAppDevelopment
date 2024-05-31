@@ -39,10 +39,30 @@
         android:layout_height="wrap_content"
         android:text="Incorrect Answers: 10"
         android:textSize="18sp" />
+    <ImageView
+        android:id="@+id/qrCodeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
 
+        />
     <Button
         android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Share" />
+
+    <Button
+        android:id="@+id/btnGoToMainActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Go back to quiz" />
+
+    <Button
+        android:id="@+id/upgradeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upgrade Now" />
 </LinearLayout>
